@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="be90f2b1-951a-4773-a2c0-dcc7ec73beef" name="Changes" comment="fastfix">
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/prod/buysell/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/prod/buysell/controller/UserController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="buysell-backend" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="kafka" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Gruvi1&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Nivis123/BuySell.git&quot;,
+    &quot;accountId&quot;: &quot;a5cf812b-ad48-4fee-a546-f934aad0e270&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="39vOB5eGOmnxeFnYTsO9cRshZEa" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build BuySell.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build buysell-backend.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.BuySell [:ru.prod.buysell.BuysellApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.buysell-backend [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;Spring Boot.BuysellBackendApplication.executor&quot;: &quot;Run&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;git.auto.fetch.suggestion.counter&quot;: &quot;2&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gruvi1/IdeaProjects/buysell-frontend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/db/migration" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/db/migration" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BuysellBackendApplication">
+    <configuration name="BuysellApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.prod.buysell.BuysellApplication" />
+      <module name="BUYSELL.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.prod.buysell.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthentificationMicroserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="buysell.authentification-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.prod.buysell.AuthentificationMicroserviceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthentificationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="authentification-service_main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.prod.buysell.AuthentificationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuysellBackendApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="buysell.core.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.prod.buysell.BuysellBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BuysellBackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="buysell-backend_main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.prod.buysell.BuysellBackendApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CoreApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="core_main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="ru.prod.buysell.CoreApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.BuysellApplication" />
+        <item itemvalue="Application.BuysellApplication" />
+        <item itemvalue="Application.BuysellApplication" />
+        <item itemvalue="Application.BuysellApplication" />
+        <item itemvalue="Application.BuysellApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Logical" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="be90f2b1-951a-4773-a2c0-dcc7ec73beef" name="Changes" comment="" />
+      <created>1771572938889</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1771572938889</updated>
+      <workItem from="1771572940419" duration="4649000" />
+      <workItem from="1771598094072" duration="28000" />
+      <workItem from="1771598130282" duration="2534000" />
+      <workItem from="1771601304838" duration="679000" />
+      <workItem from="1771700034746" duration="4000" />
+      <workItem from="1771779868942" duration="2000" />
+      <workItem from="1772136816151" duration="2153000" />
+      <workItem from="1772182130620" duration="23000" />
+      <workItem from="1772730609611" duration="281000" />
+      <workItem from="1772730910061" duration="4059000" />
+      <workItem from="1772786735752" duration="10569000" />
+      <workItem from="1772804454679" duration="2719000" />
+      <workItem from="1772968855559" duration="60000" />
+      <workItem from="1773384129518" duration="795000" />
+      <workItem from="1773467698782" duration="10000" />
+      <workItem from="1773678376123" duration="492000" />
+      <workItem from="1773678965021" duration="56000" />
+      <workItem from="1773679032701" duration="1425000" />
+      <workItem from="1773810076909" duration="723000" />
+      <workItem from="1773810823101" duration="783000" />
+      <workItem from="1773858261452" duration="333000" />
+      <workItem from="1774595322704" duration="86000" />
+      <workItem from="1775123377563" duration="3593000" />
+      <workItem from="1775128478938" duration="5082000" />
+      <workItem from="1775140413906" duration="1457000" />
+      <workItem from="1775141983737" duration="13000" />
+      <workItem from="1775142012863" duration="2413000" />
+      <workItem from="1775144463614" duration="3141000" />
+      <workItem from="1775209936808" duration="3287000" />
+      <workItem from="1775216369657" duration="4560000" />
+      <workItem from="1775289933134" duration="4711000" />
+      <workItem from="1775299054373" duration="2932000" />
+      <workItem from="1775496499205" duration="1836000" />
+      <workItem from="1775541982653" duration="7000" />
+      <workItem from="1776391787554" duration="428000" />
+      <workItem from="1776499570033" duration="3864000" />
+      <workItem from="1776503457218" duration="16000" />
+      <workItem from="1776503507446" duration="2568000" />
+      <workItem from="1776581112592" duration="3000" />
+      <workItem from="1776679966870" duration="102000" />
+      <workItem from="1776772482799" duration="5000" />
+      <workItem from="1776953799697" duration="720000" />
+      <workItem from="1776954567311" duration="2643000" />
+      <workItem from="1777226446101" duration="2151000" />
+      <workItem from="1777228641005" duration="27000" />
+      <workItem from="1777228679330" duration="2582000" />
+      <workItem from="1777231528711" duration="7594000" />
+      <workItem from="1777275809080" duration="6233000" />
+      <workItem from="1777296138262" duration="12000" />
+      <workItem from="1777413016860" duration="2827000" />
+      <workItem from="1777536451766" duration="42000" />
+      <workItem from="1777840172241" duration="6030000" />
+      <workItem from="1777846863381" duration="4268000" />
+      <workItem from="1777933935524" duration="4805000" />
+      <workItem from="1778137746432" duration="634000" />
+      <workItem from="1778142847319" duration="1010000" />
+      <workItem from="1778740386423" duration="17000" />
+      <workItem from="1778747077951" duration="2000" />
+      <workItem from="1778805721354" duration="5861000" />
+      <workItem from="1778812500741" duration="1536000" />
+      <workItem from="1778960509301" duration="793000" />
+      <workItem from="1779283862595" duration="2130000" />
+      <workItem from="1779356405326" duration="2994000" />
+      <workItem from="1779400415218" duration="3003000" />
+      <workItem from="1779407356038" duration="1649000" />
+      <workItem from="1779409013274" duration="522000" />
+      <workItem from="1779415148854" duration="1114000" />
+      <workItem from="1779417974993" duration="26000" />
+      <workItem from="1779418121267" duration="237000" />
+      <workItem from="1779464916225" duration="4667000" />
+      <workItem from="1779501949535" duration="292000" />
+      <workItem from="1779503888858" duration="765000" />
+      <workItem from="1779504668093" duration="341000" />
+      <workItem from="1779505017666" duration="523000" />
+      <workItem from="1779521871613" duration="35000" />
+      <workItem from="1779656214316" duration="131000" />
+      <workItem from="1779948648268" duration="963000" />
+      <workItem from="1779964038299" duration="814000" />
+      <workItem from="1779966005346" duration="29000" />
+    </task>
+    <task id="LOCAL-00001" summary="Добавлены сингл-импорты, убраны неиспользуемые импорты, убрано дублирование в build.gradle">
+      <option name="closed" value="true" />
+      <created>1772733341932</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772733341932</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Убран неиспользуемый код">
+      <option name="closed" value="true" />
+      <created>1772803777156</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772803777156</updated>
+    </task>
+    <task id="LOCAL-00003" summary="upd">
+      <option name="closed" value="true" />
+      <created>1773679487461</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1773679487461</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Простой рефакторинг кода">
+      <option name="closed" value="true" />
+      <created>1775145901045</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1775145901046</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Оставлен только один конфигурационный файл">
+      <option name="closed" value="true" />
+      <created>1775218813944</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1775218813944</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Добавлен flyway и миграции">
+      <option name="closed" value="true" />
+      <created>1775218836607</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1775218836607</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Добавлен триггер к таблице message">
+      <option name="closed" value="true" />
+      <created>1775496563333</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1775496563333</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Добавлены новые сущности">
+      <option name="closed" value="true" />
+      <created>1776501929738</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1776501929738</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix">
+      <option name="closed" value="true" />
+      <created>1776955923011</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1776955923011</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Сущность Goods переименована в Product">
+      <option name="closed" value="true" />
+      <created>1777279362575</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1777279362575</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Перед rebase">
+      <option name="closed" value="true" />
+      <created>1777415238686</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1777415238687</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Изменены сущности, сервисы, репозитории, контроллеры в соответствии с новой схемой бд">
+      <option name="closed" value="true" />
+      <created>1777936701604</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1777936701604</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Изменены кредиты для бд, удалён checkstyle">
+      <option name="closed" value="true" />
+      <created>1777938140522</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1777938140522</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fastfix">
+      <option name="closed" value="true" />
+      <created>1779468263178</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1779468263178</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="203" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="203" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="text">
+                    <value>
+                      <list>
+                        <option value="fix f" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Добавлены сингл-импорты, убраны неиспользуемые импорты, убрано дублирование в build.gradle" />
+    <MESSAGE value="Убран неиспользуемый код" />
+    <MESSAGE value="upd" />
+    <MESSAGE value="Простой рефакторинг кода" />
+    <MESSAGE value="Оставлен только один конфигурационный файл" />
+    <MESSAGE value="Добавлен flyway и миграции" />
+    <MESSAGE value="Добавлен триггер к таблице message" />
+    <MESSAGE value="Добавлены новые сущности" />
+    <MESSAGE value="fix" />
+    <MESSAGE value="Сущность Goods переименована в Product" />
+    <MESSAGE value="Перед rebase" />
+    <MESSAGE value="Изменены сущности, сервисы, репозитории, контроллеры в соответствии с новой схемой бд" />
+    <MESSAGE value="Изменены кредиты для бд, удалён checkstyle" />
+    <MESSAGE value="fastfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="fastfix" />
+  </component>
+</project>

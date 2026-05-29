@@ -1,0 +1,204 @@
+#!/usr/bin/env bash
+
+: "${OCF_FUNCTIONS_DIR:=/usr/lib/ocf/lib/heartbeat}"
+. "${OCF_FUNCTIONS_DIR}/ocf-shellfuncs"
+
+OCF_RESKEY_pgdata_default="/var/lib/postgresql/data"
+OCF_RESKEY_pgctl_default="/usr/lib/postgresql/16/bin/pg_ctl"
+OCF_RESKEY_psql_default="/usr/lib/postgresql/16/bin/psql"
+OCF_RESKEY_pgdba_default="postgres"
+OCF_RESKEY_pgport_default="5432"
+OCF_RESKEY_start_opts_default="-w"
+OCF_RESKEY_stop_opts_default="-m fast -w"
+
+: "${OCF_RESKEY_pgdata:=$OCF_RESKEY_pgdata_default}"
+: "${OCF_RESKEY_pgctl:=$OCF_RESKEY_pgctl_default}"
+: "${OCF_RESKEY_psql:=$OCF_RESKEY_psql_default}"
+: "${OCF_RESKEY_pgdba:=$OCF_RESKEY_pgdba_default}"
+: "${OCF_RESKEY_pgport:=$OCF_RESKEY_pgport_default}"
+: "${OCF_RESKEY_start_opts:=$OCF_RESKEY_start_opts_default}"
+: "${OCF_RESKEY_stop_opts:=$OCF_RESKEY_stop_opts_default}"
+
+export PGDATA="$OCF_RESKEY_pgdata"
+
+run_as_postgres() {
+    if [ "$(id -u)" = "0" ]; then
+        gosu postgres "$@"
+    else
+        "$@"
+    fi
+}
+
+sql() {
+    run_as_postgres "$OCF_RESKEY_psql" \
+        -qAt \
+        -p "$OCF_RESKEY_pgport" \
+        -U "$OCF_RESKEY_pgdba" \
+        -d postgres \
+        -c "$1"
+}
+
+postgres_ready() {
+    run_as_postgres pg_isready \
+        -p "$OCF_RESKEY_pgport" \
+        -U "$OCF_RESKEY_pgdba" \
+        -d postgres >/dev/null 2>&1
+}
+
+in_recovery() {
+    sql "SELECT pg_is_in_recovery()" 2>/dev/null | tr -d '[:space:]'
+}
+
+wait_for_primary() {
+    local waited=0
+    local recovery
+
+    while [ "$waited" -lt 60 ]; do
+        if postgres_ready; then
+            recovery="$(in_recovery || true)"
+            if [ "$recovery" = "f" ]; then
+                return $OCF_SUCCESS
+            fi
+        fi
+        sleep 1
+        waited=$((waited + 1))
+    done
+
+    return $OCF_ERR_GENERIC
+}
+
+metadata() {
+    cat <<'EOF'
+<?xml version="1.0"?>
+<!DOCTYPE resource-agent SYSTEM "ra-api-1.dtd">
+<resource-agent name="pgsql-primary" version="1.0">
+  <version>1.0</version>
+  <longdesc lang="en">Promotes or starts a PostgreSQL instance as writable primary.</longdesc>
+  <shortdesc lang="en">PostgreSQL writable primary</shortdesc>
+  <parameters>
+    <parameter name="pgdata" unique="0" required="1">
+      <longdesc lang="en">PostgreSQL data directory.</longdesc>
+      <shortdesc lang="en">PGDATA</shortdesc>
+      <content type="string" default="/var/lib/postgresql/data"/>
+    </parameter>
+    <parameter name="pgctl" unique="0" required="0">
+      <longdesc lang="en">Path to pg_ctl.</longdesc>
+      <shortdesc lang="en">pg_ctl</shortdesc>
+      <content type="string" default="/usr/lib/postgresql/16/bin/pg_ctl"/>
+    </parameter>
+    <parameter name="psql" unique="0" required="0">
+      <longdesc lang="en">Path to psql.</longdesc>
+      <shortdesc lang="en">psql</shortdesc>
+      <content type="string" default="/usr/lib/postgresql/16/bin/psql"/>
+    </parameter>
+    <parameter name="pgdba" unique="0" required="0">
+      <longdesc lang="en">Database superuser.</longdesc>
+      <shortdesc lang="en">DBA user</shortdesc>
+      <content type="string" default="postgres"/>
+    </parameter>
+    <parameter name="pgport" unique="0" required="0">
+      <longdesc lang="en">PostgreSQL port.</longdesc>
+      <shortdesc lang="en">Port</shortdesc>
+      <content type="integer" default="5432"/>
+    </parameter>
+  </parameters>
+  <actions>
+    <action name="start" timeout="90s"/>
+    <action name="stop" timeout="90s"/>
+    <action name="monitor" timeout="30s" interval="10s"/>
+    <action name="meta-data" timeout="5s"/>
+    <action name="validate-all" timeout="20s"/>
+  </actions>
+</resource-agent>
+EOF
+}
+
+validate_all() {
+    [ -x "$OCF_RESKEY_pgctl" ] || return $OCF_ERR_INSTALLED
+    [ -x "$OCF_RESKEY_psql" ] || return $OCF_ERR_INSTALLED
+    [ -d "$OCF_RESKEY_pgdata" ] || return $OCF_ERR_CONFIGURED
+    return $OCF_SUCCESS
+}
+
+monitor() {
+    local recovery
+
+    if ! postgres_ready; then
+        return $OCF_NOT_RUNNING
+    fi
+
+    recovery="$(in_recovery || true)"
+    case "$recovery" in
+        f)
+            return $OCF_SUCCESS
+            ;;
+        t)
+            return $OCF_NOT_RUNNING
+            ;;
+        *)
+            return $OCF_ERR_GENERIC
+            ;;
+    esac
+}
+
+start() {
+    local recovery
+
+    if postgres_ready; then
+        recovery="$(in_recovery || true)"
+        if [ "$recovery" = "f" ]; then
+            return $OCF_SUCCESS
+        fi
+        ocf_log info "Promoting running PostgreSQL standby to primary"
+        run_as_postgres "$OCF_RESKEY_pgctl" -D "$OCF_RESKEY_pgdata" -w promote
+        wait_for_primary
+        return $?
+    fi
+
+    ocf_log info "Starting PostgreSQL"
+    run_as_postgres "$OCF_RESKEY_pgctl" -D "$OCF_RESKEY_pgdata" $OCF_RESKEY_start_opts start
+
+    recovery="$(in_recovery || true)"
+    if [ "$recovery" = "t" ]; then
+        ocf_log info "Promoting started PostgreSQL standby to primary"
+        run_as_postgres "$OCF_RESKEY_pgctl" -D "$OCF_RESKEY_pgdata" -w promote
+    fi
+
+    wait_for_primary
+}
+
+stop() {
+    if ! postgres_ready; then
+        return $OCF_SUCCESS
+    fi
+
+    ocf_log info "Stopping PostgreSQL primary resource"
+    run_as_postgres "$OCF_RESKEY_pgctl" -D "$OCF_RESKEY_pgdata" $OCF_RESKEY_stop_opts stop
+}
+
+case "$1" in
+    meta-data)
+        metadata
+        exit $OCF_SUCCESS
+        ;;
+    validate-all)
+        validate_all
+        exit $?
+        ;;
+    start)
+        validate_all || exit $?
+        start
+        exit $?
+        ;;
+    stop)
+        stop
+        exit $?
+        ;;
+    monitor)
+        monitor
+        exit $?
+        ;;
+    *)
+        exit $OCF_ERR_UNIMPLEMENTED
+        ;;
+esac

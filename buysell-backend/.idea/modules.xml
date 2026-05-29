@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-service/auth-service.iml" group="buysell-backend/auth-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-service/auth-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-service/auth-service_main.iml" group="buysell-backend/auth-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/auth-service/auth-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/auth-service/auth-service_test.iml" group="buysell-backend/auth-service" />
+      <module fileurl="file://$PROJECT_DIR$/bl-service.iml" filepath="$PROJECT_DIR$/bl-service.iml" group="buysell-backend/bl-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bl-service/bl-service_main.iml" filepath="$PROJECT_DIR$/.idea/modules/bl-service/bl-service_main.iml" group="buysell-backend/bl-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bl-service/bl-service_test.iml" filepath="$PROJECT_DIR$/.idea/modules/bl-service/bl-service_test.iml" group="buysell-backend/bl-service" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buysell-backend.iml" filepath="$PROJECT_DIR$/.idea/modules/buysell-backend.iml" group="buysell-backend" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buysell-backend_main.iml" filepath="$PROJECT_DIR$/.idea/modules/buysell-backend_main.iml" group="buysell-backend" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/buysell-backend_test.iml" filepath="$PROJECT_DIR$/.idea/modules/buysell-backend_test.iml" group="buysell-backend" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/untitled/untitled_main.iml" filepath="$PROJECT_DIR$/.idea/modules/untitled/untitled_main.iml" group="buysell-backend/untitled" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/untitled/untitled_test.iml" filepath="$PROJECT_DIR$/.idea/modules/untitled/untitled_test.iml" group="buysell-backend/untitled" />
+    </modules>
+  </component>
+</project>

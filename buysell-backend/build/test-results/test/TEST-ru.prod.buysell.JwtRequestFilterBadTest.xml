@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.prod.buysell.JwtRequestFilterBadTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-15T02:10:03.674Z" hostname="gruvi1-asuslaptop" time="0.97">
+  <properties/>
+  <testcase name="doFilterInternal_WithInvalidToken_ShouldNotSetAuthentication()" classname="ru.prod.buysell.JwtRequestFilterBadTest" time="0.961"/>
+  <system-out><![CDATA[1
+2
+3
+4
+09:10:04.625 [Test worker] WARN ru.prod.buysell.security.JwtRequestFilter -- Токен невалиден: Token expired
+5
+7
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/home/gruvi1/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.17.8/f09415827a71be7ed621c7bd02550678f28bc81c/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

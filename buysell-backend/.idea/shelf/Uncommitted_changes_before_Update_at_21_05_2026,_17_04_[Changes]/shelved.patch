@@ -1,0 +1,107 @@
+Index: src/test/java/ru/prod/buysell/JwtRequestFilterTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ru.prod.buysell;\n\nimport jakarta.servlet.FilterChain;\nimport jakarta.servlet.http.HttpServletRequest;\nimport jakarta.servlet.http.HttpServletResponse;\nimport org.junit.jupiter.api.Test;\nimport org.springframework.security.core.context.SecurityContextHolder;\nimport ru.prod.buysell.security.JwtRequestFilter;\nimport ru.prod.buysell.security.JwtTokenUtils;\n\nimport java.util.List;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.junit.jupiter.api.Assertions.assertNotNull;\nimport static org.mockito.Mockito.mock;\nimport static org.mockito.Mockito.verify;\nimport static org.mockito.Mockito.when;\n\nclass JwtRequestFilterTest {\n\n    private final JwtTokenUtils jwtTokenUtils = mock(JwtTokenUtils.class);\n    private final JwtRequestFilter filter = new JwtRequestFilter(jwtTokenUtils);\n\n    @Test\n    void doFilterInternal_WithValidToken_ShouldSetAuthentication() throws Exception {\n        HttpServletRequest request = mock(HttpServletRequest.class);\n        HttpServletResponse response = mock(HttpServletResponse.class);\n        FilterChain filterChain = mock(FilterChain.class);\n\n        when(request.getHeader(\"Authorization\")).thenReturn(\"Bearer valid_token\");\n        when(jwtTokenUtils.getUsername(\"valid_token\")).thenReturn(\"user@test.com\");\n        when(jwtTokenUtils.getRoles(\"valid_token\")).thenReturn(List.of(\"ROLE_USER\"));\n\n        filter.doFilterInternal(request, response, filterChain);\n\n        assertNotNull(SecurityContextHolder.getContext().getAuthentication());\n        assertEquals(\"user@test.com\", SecurityContextHolder.getContext().getAuthentication().getPrincipal());\n        verify(filterChain).doFilter(request, response);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/ru/prod/buysell/JwtRequestFilterTest.java b/src/test/java/ru/prod/buysell/JwtRequestFilterTest.java
+--- a/src/test/java/ru/prod/buysell/JwtRequestFilterTest.java	(revision 55a5dc76d2bc00f4febdc578a7327bce917e7845)
++++ b/src/test/java/ru/prod/buysell/JwtRequestFilterTest.java	(date 1779285207965)
+@@ -4,7 +4,12 @@
+ import jakarta.servlet.http.HttpServletRequest;
+ import jakarta.servlet.http.HttpServletResponse;
+ import org.junit.jupiter.api.Test;
++import org.junit.jupiter.api.extension.ExtendWith;
++import org.mockito.InjectMocks;
++import org.mockito.Mock;
++import org.mockito.junit.jupiter.MockitoExtension;
+ import org.springframework.security.core.context.SecurityContextHolder;
++import org.springframework.test.context.junit.jupiter.SpringExtension;
+ import ru.prod.buysell.security.JwtRequestFilter;
+ import ru.prod.buysell.security.JwtTokenUtils;
+ 
+@@ -16,10 +21,14 @@
+ import static org.mockito.Mockito.verify;
+ import static org.mockito.Mockito.when;
+ 
++@ExtendWith(MockitoExtension.class)
+ class JwtRequestFilterTest {
+ 
+-    private final JwtTokenUtils jwtTokenUtils = mock(JwtTokenUtils.class);
+-    private final JwtRequestFilter filter = new JwtRequestFilter(jwtTokenUtils);
++    @Mock
++    private JwtTokenUtils jwtTokenUtils;
++
++    @InjectMocks
++    private JwtRequestFilter filter;
+ 
+     @Test
+     void doFilterInternal_WithValidToken_ShouldSetAuthentication() throws Exception {
+Index: Query.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Query.sql b/Query.sql
+new file mode 100644
+--- /dev/null	(date 1778810828099)
++++ b/Query.sql	(date 1778810828099)
+@@ -0,0 +1,1 @@
++select * from product;
+\ No newline at end of file
+Index: src/main/java/ru/prod/buysell/security/JwtRequestFilter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package ru.prod.buysell.security;\n\nimport jakarta.servlet.FilterChain;\nimport jakarta.servlet.ServletException;\nimport jakarta.servlet.http.HttpServletRequest;\nimport jakarta.servlet.http.HttpServletResponse;\nimport lombok.RequiredArgsConstructor;\nimport lombok.extern.slf4j.Slf4j;\nimport org.springframework.security.authentication.UsernamePasswordAuthenticationToken;\nimport org.springframework.security.core.context.SecurityContextHolder;\nimport org.springframework.security.core.userdetails.UserDetails;\nimport org.springframework.security.core.userdetails.UserDetailsService;\nimport org.springframework.stereotype.Component;\nimport org.springframework.web.filter.OncePerRequestFilter;\n\nimport java.io.IOException;\n\n@Component\n@RequiredArgsConstructor\n@Slf4j\npublic class JwtRequestFilter extends OncePerRequestFilter {\n    private final JwtTokenUtils jwtTokenUtils;\n    private final UserDetailsService userDetailsService;\n\n    @Override\n    public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {\n        String authHeader = request.getHeader(\"Authorization\");\n        String username = null;\n        String jwt = null;\n\n        if (authHeader != null && authHeader.startsWith(\"Bearer \")) {\n            jwt = authHeader.substring(7);\n            try {\n                username = jwtTokenUtils.getUsername(jwt);\n            } catch (Exception e) {\n                log.warn(\"Токен невалиден: {}\", e.getMessage());\n            }\n        }\n\n        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {\n            UserDetails userDetails = userDetailsService.loadUserByUsername(username);\n            UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(\n                    userDetails, null, userDetails.getAuthorities()\n            );\n            SecurityContextHolder.getContext().setAuthentication(token);\n        }\n\n        filterChain.doFilter(request, response);\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/ru/prod/buysell/security/JwtRequestFilter.java b/src/main/java/ru/prod/buysell/security/JwtRequestFilter.java
+--- a/src/main/java/ru/prod/buysell/security/JwtRequestFilter.java	(revision 55a5dc76d2bc00f4febdc578a7327bce917e7845)
++++ b/src/main/java/ru/prod/buysell/security/JwtRequestFilter.java	(date 1779284279806)
+@@ -4,7 +4,6 @@
+ import jakarta.servlet.ServletException;
+ import jakarta.servlet.http.HttpServletRequest;
+ import jakarta.servlet.http.HttpServletResponse;
+-import lombok.RequiredArgsConstructor;
+ import lombok.extern.slf4j.Slf4j;
+ import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+ import org.springframework.security.core.context.SecurityContextHolder;
+@@ -16,12 +15,16 @@
+ import java.io.IOException;
+ 
+ @Component
+-@RequiredArgsConstructor
+ @Slf4j
+ public class JwtRequestFilter extends OncePerRequestFilter {
+     private final JwtTokenUtils jwtTokenUtils;
+     private final UserDetailsService userDetailsService;
+ 
++    public JwtRequestFilter(JwtTokenUtils jwtTokenUtils, UserDetailsService userDetailsService) {
++        this.jwtTokenUtils = jwtTokenUtils;
++        this.userDetailsService = userDetailsService;
++    }
++
+     @Override
+     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+         String authHeader = request.getHeader("Authorization");
+Index: src/main/resources/application.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>spring:\n  application:\n    name: buysell-backend\n  datasource:\n    url: jdbc:postgresql://localhost:5432/postgres\n    username: postgres\n    password: ksusha\n    driver-class-name: org.postgresql.Driver\n  flyway:\n    driver-class-name: org.postgresql.Driver\n  jpa:\n    hibernate:\n      ddl-auto: validate\n    show-sql: true\n    properties:\n      hibernate:\n        format_sql: true\n        dialect: org.hibernate.dialect.PostgreSQLDialect\n  servlet:\n    multipart:\n      max-file-size: 10MB\n      max-request-size: 10MB\n  security:\n    user:\n      name: user\n      password: pass\n  data:\n    web:\n      pageable:\n        default-page-size: 20\n        max-page-size: 100\n\nlogging:\n  level:\n    ru.prod.buysell: DEBUG\n    org.springframework.security: DEBUG\n    org.springframework.web: DEBUG\n\nserver:\n  port: 8080\n\nfile:\n  upload-dir: ./uploads\n  avatar-file-dir: /avatar\n  product-file-dir: /product\n  max-size: 10485760\n  allowed-types: image/jpeg,image/png,image/webp\n\njwt:\n  secret: 984h489n12n3898h4v9y298n39y493nv839cn839byn893cn893\n  lifetime: 86400000
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/application.yml b/src/main/resources/application.yml
+--- a/src/main/resources/application.yml	(revision 55a5dc76d2bc00f4febdc578a7327bce917e7845)
++++ b/src/main/resources/application.yml	(date 1779284145011)
+@@ -4,7 +4,7 @@
+   datasource:
+     url: jdbc:postgresql://localhost:5432/postgres
+     username: postgres
+-    password: ksusha
++    password: postgres
+     driver-class-name: org.postgresql.Driver
+   flyway:
+     driver-class-name: org.postgresql.Driver

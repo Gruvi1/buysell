@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.flywaydb:flyway-database-postgresql:11.14.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.flywaydb" artifactId="flyway-database-postgresql" version="11.14.1" baseVersion="11.14.1" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.flywaydb/flyway-database-postgresql/11.14.1/9d4df925a247eb7dcac1e812dc9ab9e81f5ec393/flyway-database-postgresql-11.14.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.flywaydb/flyway-database-postgresql/11.14.1/1510aa885345f5a3f890244904a7a69d8c712eb8/flyway-database-postgresql-11.14.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
