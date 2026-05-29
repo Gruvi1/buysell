@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.prod.buysell.JwtTokenUtilsTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-15T02:10:04.657Z" hostname="gruvi1-asuslaptop" time="0.297">
-  <properties/>
-  <testcase name="generateToken_ShouldReturnValidJwt()" classname="ru.prod.buysell.JwtTokenUtilsTest" time="0.297"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
